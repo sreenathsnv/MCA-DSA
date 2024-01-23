@@ -52,7 +52,7 @@ void display(struct node* root)
 	if(root != NULL)
 	{
 		display(root->left);
-		printf(" %d\n\t ",root->data);
+		printf(" %d ",root->data);
 		display(root->right);
 	}
 	else

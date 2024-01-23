@@ -53,6 +53,29 @@ void display(struct node *root, int level)
     }
 }
 
+int max(int a , int b)
+{
+	if(a==b)
+		return a;
+	else if(a<b)
+		return b;
+	else
+		return a;
+}
+
+int height(struct node* root)
+{
+	int lh,rh;
+	if(root == NULL)
+	{
+		return 0;
+	}
+	lh = height(root->left);
+	rh = height(root->right);
+	return max(lh,rh)+1;
+	
+}
+
 int main()
 {
     struct node *root = (struct node *)malloc(sizeof(struct node));
@@ -73,7 +96,7 @@ int main()
         printf("\nLevel %d:", i);
         display(root, i);
     }
-
+	printf("Height = %d",height(root));
     return 0;
 }
 
